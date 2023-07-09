@@ -1,17 +1,20 @@
+import os
+import cv2
 
-def sep_d_frames(video):
-    if os.path.isdir('frames_Tracking'):
+def FrameCapture(path): 
+    pasta="frames"
+    if os.path.isdir(pasta):
         return 
     else:
-        os.mkdir('frames_Tracking')
-        vidcap = cv2.VideoCapture(video)
-        success,image = vidcap.read()
-        count = 0
-        success = True
-        while success:
-          success,image = vidcap.read()
-          cv2.imwrite("frames_Tracking/frame%d.jpg" % count, image)     # save frame as JPEG file
-          if cv2.waitKey(10) == 27:                     # exit if Escape is hit
-              break
-          count += 1
-        return 0
+
+        os.mkdir(pasta)
+    vidObj = cv2.VideoCapture(path) 
+    count = 0
+    success = 1
+    while success: 
+        success, image = vidObj.read() 
+        cv2.imwrite("frames/frame%d.jpg" % count, image) 
+        count += 1
+    
+    
+FrameCapture("/home/emanuel/Vídeos/PREVENÇÃO À COVID-19 PESSOAS ANDAM PELAS RUAS SEM MÁSCARA DE PROTEÇÃO.mp4") 
