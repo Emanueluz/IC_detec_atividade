@@ -33,7 +33,7 @@ def print_msg(client, userdata, message):
 
 
 # use TLS for secure connection with HiveMQ Cloud
-sslSettings = ssl.SSLContext(mqtt.client.ssl.PROTOCOL_TLS)
+sslSettings = ssl.create_default_context()
 
 # put in your cluster credentials and hostname
 auth = {'username': "aaaaa", 'password': "Aa123456"}

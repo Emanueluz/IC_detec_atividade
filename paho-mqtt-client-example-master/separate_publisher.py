@@ -23,7 +23,7 @@ import paho.mqtt.publish as publish
 msgs = [{'topic': "paho/test/multiple", 'payload': "test 1"}, ("paho/test/multiple", "test 2", 0, False)]
 
 # use TLS for secure connection with HiveMQ Cloud
-sslSettings = ssl.SSLContext(mqtt.client.ssl.PROTOCOL_TLS)
+sslSettings = ssl.create_default_context()
 
 # put in your cluster credentials and hostname
 auth = {'username': "aaaaa", 'password': "Aa123456"}
